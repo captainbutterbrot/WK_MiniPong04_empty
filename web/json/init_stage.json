@@ -1,0 +1,178 @@
+{
+  "canvas":
+  {
+    "width":   600,
+    "height":  550
+  },
+
+  "game":
+  {
+    "fps": 120,
+
+    "welcome":  "Willkommen bei MiniPong",
+    "pause":    "Pause",
+    "ballLost": "Das Spiel ist vorbei :-("
+  },
+
+  "automaton":
+  {
+    "start":
+    { "": "finished" },
+
+    "running":
+    { "stop":  "finished",
+      "pause": "paused",
+      "onEntry":
+      { "buttonStartStop":
+      { "label":   "Spiel beenden",
+        "onClick": "stopGame"
+      },
+        "buttonPause":
+        { "class":   "",
+          "label":   "Spiel unterbrechen",
+          "onClick": "pauseGame"
+        }
+      }
+    },
+
+    "paused":
+    { "stop":     "finished",
+      "continue": "running",
+      "onEntry":
+      { "buttonStartStop":
+      { "label":   "Spiel beenden",
+        "onClick": "stopGame"
+      },
+        "buttonPause":
+        { "class":   "",
+          "label":   "Spiel fortsetzen",
+          "onClick": "continueGame"
+        }
+      }
+    },
+
+    "finished":
+    { "start": "running",
+      "onEntry":
+      { "buttonStartStop":
+      { "label":   "Spiel starten",
+        "onClick": "startGame"
+      },
+        "buttonPause":
+        { "class":   "hidden"
+        }
+      }
+    }
+  },
+
+  "model":
+  {
+    "buttonStartStop":
+    {
+      "id": "buttonStartStop"
+    },
+
+    "buttonPause":
+    {
+      "id":    "buttonPause",
+      "label": "Pause"
+    },
+
+    "ball":
+    {
+      "r":   10,
+      "pos": { "x": 195 , "y": 10 },
+      "vel": { "x": { "min":  50, "max": 200 },
+               "y": { "min": 150, "max": 200 }
+             }
+    },
+
+    "paddle":
+    {
+      "width":    50,
+      "height":    8,
+      "pos":      {"x": 175, "y": 487},
+      "vel":      {"x": 100, "y":   0},
+      "acc":      {"x": 500, "y":   0},
+      "friction": 0.3
+    },
+
+    "infoPanel":
+    {
+      "pos":    {"x": 0, "y": 500},
+      "width":  600,
+      "height":  50
+    },
+
+    "info":
+    {
+      "pos":    {"x": 10, "y": 525}
+    },
+
+    "score":
+    {
+      "pos":      {"x": 590, "y": 525},
+      "template": "Punkte: $1",
+      "value":    0
+    }
+  },
+
+  "view":
+  {
+    "buttonStartStop":
+    {
+      "elementID": "button_start_stop"
+    },
+
+    "buttonPause":
+    {
+      "elementID": "button_pause"
+    },
+
+    "ball":
+    {
+      "color":       "#55AA55",
+      "borderWidth": 1,
+      "borderColor": "#000000"
+    },
+
+    "paddle":
+    {
+      "color":       "#aa55cc",
+      "borderWidth": 1,
+      "borderColor": "#000000"
+    },
+
+    "infoPanel":
+    {
+      "color":       "#AAAAAB",
+      "borderWidth": 0,
+      "borderColor": "#000000"
+    },
+
+    "info":
+    {
+      "color":        "#000000",
+      "font":         "bold 20px Verdana, Geneva, sans-serif",
+      "textBaseline": "middle",
+      "textAlign":    "left"
+    },
+
+    "score":
+    {
+      "color":        "#000000",
+      "font":         "bold 20px \"Courier New\", Courier, monospace",
+      "textBaseline": "middle",
+      "textAlign":    "right"
+    }
+  },
+
+  "control":
+  {
+    "player":
+    {
+      "left":  {"key": "ArrowLeft",  "keyCode": 37},
+      "right": {"key": "ArrowRight", "keyCode": 39}
+    }
+  }
+}

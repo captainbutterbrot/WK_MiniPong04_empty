@@ -1,0 +1,41 @@
+/*!
+ * @author    Wolfgang Kowarschick <kowa@hs-augsburg.de>
+ * @copyright 2016
+ * @license   CC-BY-NC-SA-4.0
+ */
+
+#terminal
+{
+  font-family: monospace;
+  line-height: 1ex;
+  white-space: pre;
+}
+
+.terminal_h1
+{
+  font-weight: bold;
+  font-size:   150%;
+  padding-top: 1.0ex;
+  color:       lightblue;
+}
+
+.terminal_h2
+{
+  font-weight: bold;
+  font-size:   130%;
+  color:       lightcoral;
+}
+
+.terminal_h3
+{
+  font-weight: bold;
+  font-size:   110%;
+  color:       mediumseagreen;
+}
+
+.terminal_h4
+{
+  font-style: italic;
+  font-size:  100%;
+  color:      lightpink;
+}
